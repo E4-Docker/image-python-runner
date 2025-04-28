@@ -14,4 +14,4 @@ COPY requirements.txt requirements.txt
 
 ENV PYTHON_FILE_NAME="app"
 
-ENTRYPOINT [ "sh init.sh" ]
+ENTRYPOINT [ "dash", "init.sh" ]
