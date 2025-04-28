@@ -19,7 +19,7 @@ update_python_packages()
 
 run_python()
 {
-    python "$PYTHON_FILE_NAME"
+    python "$PYTHON_FILE_NAME".py
 }
 
 main
