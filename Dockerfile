@@ -7,15 +7,14 @@ LABEL description="Run app.py"
 WORKDIR /usr/src/app
 
 ENV VENV_PATH=venv
-ENV SHELL_FILE_NAME=init
 ENV REQUIREMENTS_FILE_NAME=requirements
 ENV PYTHON_FILE_NAME=app
 
-COPY "$SHELL_FILE_NAME".sh "$SHELL_FILE_NAME".sh
+COPY init.sh init.sh
 COPY "$PYTHON_FILE_NAME".py "$PYTHON_FILE_NAME".py
 COPY "$REQUIREMENTS_FILE_NAME".txt "$REQUIREMENTS_FILE_NAME".txt
 
 RUN apt-get update
 RUN python -m venv "$VENV_PATH"
 
-ENTRYPOINT [ ".", "$SHELL_FILE_NAME.sh" ]
+ENTRYPOINT [ "./init.sh" ]
