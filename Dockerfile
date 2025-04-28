@@ -1,14 +1,17 @@
-FROM alpine:latest
+FROM python:3.13.3-slim
 
 LABEL maintainer="eu4ng97@gmail.com"
 LABEL version="0.1.0"
-LABEL description=""
+LABEL description="Run app.py"
 
 RUN apk update
 
 WORKDIR /usr/src/app
 
 COPY init.sh init.sh
-RUN chmod 755 init.sh
+COPY app.py app.py
+COPY requirements.txt requirements.txt
 
-ENTRYPOINT [ "./init.sh" ]
+ENV PYTHON_FILE_NAME="app"
+
+ENTRYPOINT [ "sh init.sh" ]
