@@ -9,7 +9,7 @@ main()
 
 activate_venv()
 {
-    dash "$VENV_PATH"/Scripts/activate
+    dash venv/Scripts/activate
 }
 
 update_python_packages()

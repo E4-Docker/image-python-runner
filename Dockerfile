@@ -6,7 +6,6 @@ LABEL description="Run app.py"
 
 WORKDIR /usr/src/app
 
-ENV VENV_PATH=venv
 ENV REQUIREMENTS_FILE_NAME=requirements
 ENV PYTHON_FILE_NAME=app
 
@@ -15,6 +14,6 @@ COPY "$PYTHON_FILE_NAME".py "$PYTHON_FILE_NAME".py
 COPY "$REQUIREMENTS_FILE_NAME".txt "$REQUIREMENTS_FILE_NAME".txt
 
 RUN apt-get update
-RUN python -m venv $VENV_PATH
+RUN python -m venv venv
 
 ENTRYPOINT [ "dash", "init.sh" ]
