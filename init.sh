@@ -2,13 +2,19 @@
 
 main()
 {
+    activate_venv
     update_python_packages
-    run_python
+    run_python_file
+}
+
+activate_venv()
+{
+    dash venv/Scripts/activate
 }
 
 update_python_packages()
 {
-    python -m pip install --user --upgrade pip
+    pip install --upgrade pip
 
     REQUIREMENTS=requirements.txt
 
@@ -17,7 +23,7 @@ update_python_packages()
     fi
 }
 
-run_python()
+run_python_file()
 {
     python "$PYTHON_FILE_NAME".py
 }
