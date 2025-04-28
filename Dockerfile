@@ -6,16 +6,20 @@ LABEL description="Run app.py"
 
 WORKDIR /usr/src/app
 
-RUN apt-get update
-RUN python -m venv venv
-
-ENV REQUIREMENTS_FILE_NAME=requirements
+ENV SHELL_FILE_NAME=init
 ENV PYTHON_FILE_NAME=app
-ENV VIRTUAL_ENV=/venv
-ENV PATH=/venv/bin:$PATH
+ENV REQUIREMENTS_FILE_NAME=requirements
+ENV VENV_PATH=venv
 
-COPY init.sh init.sh
+COPY "$SHELL_FILE_NAME".sh "$SHELL_FILE_NAME".sh
 COPY "$PYTHON_FILE_NAME".py "$PYTHON_FILE_NAME".py
-COPY "$REQUIREMENTS_FILE_NAME".txt "$REQUIREMENTS_FILE_NAME".txt
+
+RUN apt-get update
+
+RUN python -m venv "$VENV_PATH"
+RUN . "$VENV_PATH"/bin/activate
+RUN pip install --upgrade pip
+RUN pip freeze > "$REQUIREMENTS_FILE_NAME".txt
+RUN deactivate
 
 ENTRYPOINT [ "dash", "init.sh" ]

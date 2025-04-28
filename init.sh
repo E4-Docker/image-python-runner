@@ -2,16 +2,14 @@
 
 main()
 {
-    which python
     activate_venv
-    which python
     update_python_packages
     run_python_file
 }
 
 activate_venv()
 {
-    . venv/bin/activate
+    . "$VENV_PATH"/bin/activate
 }
 
 update_python_packages()
