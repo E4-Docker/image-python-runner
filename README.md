@@ -1,15 +1,21 @@
-# Template Docker Image
+# Python Runner
 
-도커 이미지 빌드 전용 템플릿 저장소
+파이썬 파일을 실행 시키는 도커 이미지
 
-## 빌드 명령어
+## 구성 파일
+
+- init.sh
+- app.py
+- requirements.txt
+
+## 환경 변수
+
+| Parameter        | Default | Function        |
+|:-----------------|:-------:|:----------------|
+| PYTHON_FILE_NAME |   app   | 실행 시킬 파이썬 파일 이름 |
+
+## 이미지 이름
 
 ```bash
-docker build -t ghcr.io/eu4ng/IMAGE_NAME:latest .
-```
-
-## 푸시 명령어
-
-```bash
-docker push ghcr.io/eu4ng/IMAGE_NAME:latest
+ghcr.io/e4-docker/python-runner:latest
 ```
