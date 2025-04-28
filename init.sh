@@ -14,10 +14,10 @@ activate_venv()
 
 update_python_packages()
 {
-    pip install --upgrade pip
+    python -m pip install --upgrade pip
 
     if [ -e "$REQUIREMENTS_FILE_NAME".txt ]; then
-        pip install -r "$REQUIREMENTS_FILE_NAME".txt
+        python -m pip install -r "$REQUIREMENTS_FILE_NAME".txt
     fi
 }
 
