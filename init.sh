@@ -8,7 +8,7 @@ main()
 
 update_python_packages()
 {
-    pip install --upgrade pip
+    pip install --upgrade pip --user
 
     REQUIREMENTS=requirements.txt
 
