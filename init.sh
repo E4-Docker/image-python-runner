@@ -16,10 +16,8 @@ update_python_packages()
 {
     pip install --upgrade pip
 
-    REQUIREMENTS=requirements.txt
-
-    if [ -e "$REQUIREMENTS" ]; then
-        pip install -r "$REQUIREMENTS"
+    if [ -e "$REQUIREMENTS_FILE_NAME".txt ]; then
+        pip install -r "$REQUIREMENTS_FILE_NAME".txt
     fi
 }
 
