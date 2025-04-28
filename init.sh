@@ -13,7 +13,7 @@ update_python_packages()
     REQUIREMENTS=requirements.txt
 
     if [ -e "$REQUIREMENTS" ]; then
-        pip install "$REQUIREMENTS"
+        pip install -r "$REQUIREMENTS"
     fi
 }
 
