@@ -17,9 +17,5 @@ COPY "$PYTHON_FILE_NAME".py "$PYTHON_FILE_NAME".py
 RUN apt-get update
 
 RUN python -m venv "$VENV_PATH"
-RUN . "$VENV_PATH"/bin/activate
-RUN pip install --upgrade pip
-RUN pip freeze > "$REQUIREMENTS_FILE_NAME".txt
-RUN deactivate
 
 ENTRYPOINT [ "dash", "init.sh" ]
