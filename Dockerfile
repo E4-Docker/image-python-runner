@@ -4,7 +4,7 @@ LABEL maintainer="eu4ng97@gmail.com"
 LABEL version="0.1.0"
 LABEL description="Run app.py"
 
-RUN apk update
+RUN apt-get update
 
 WORKDIR /usr/src/app
 
