@@ -15,6 +15,6 @@ COPY "$PYTHON_FILE_NAME".py "$PYTHON_FILE_NAME".py
 COPY "$REQUIREMENTS_FILE_NAME".txt "$REQUIREMENTS_FILE_NAME".txt
 
 RUN apt-get update
-RUN python -m venv "$VENV_PATH"
+RUN python -m venv $VENV_PATH
 
 ENTRYPOINT [ "dash", "init.sh" ]
