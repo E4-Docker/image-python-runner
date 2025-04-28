@@ -9,7 +9,7 @@ WORKDIR /usr/src/app
 RUN apt-get update
 
 RUN python -m venv venv
-RUN source venv/Scripts/activate
+RUN . venv/Scripts/activate
 RUN pip freeze > requirements.txt
 RUN deactivate
 
@@ -18,4 +18,4 @@ COPY app.py app.py
 
 ENV PYTHON_FILE_NAME="app"
 
-ENTRYPOINT [ "dash", "init.sh" ]
+ENTRYPOINT [ ".", "init.sh" ]
