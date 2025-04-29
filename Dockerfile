@@ -4,6 +4,7 @@ LABEL maintainer="eu4ng97@gmail.com"
 LABEL version="0.1.0"
 LABEL description="Run app.py"
 
+RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
 
 ENV PYTHON_FILE_NAME=app
