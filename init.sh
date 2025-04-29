@@ -18,6 +18,8 @@ update_python_packages()
 
     if [ -e "$REQUIREMENTS_FILE_NAME".txt ]; then
         python -m pip install -r "$REQUIREMENTS_FILE_NAME".txt
+    else
+        echo "$REQUIREMENTS_FILE_NAME.txt not found."
     fi
 }
 
