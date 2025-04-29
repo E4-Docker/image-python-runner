@@ -6,17 +6,16 @@ LABEL description="Run app.py"
 
 WORKDIR /usr/src/app
 
-ENV SHELL_FILE_NAME=init
 ENV PYTHON_FILE_NAME=app
-ENV REQUIREMENTS_FILE_NAME=requirements
-ENV VENV_PATH=venv
 
 RUN apt-get update
 
-RUN python -m venv "$VENV_PATH"
-RUN . "$VENV_PATH"/bin/activate && python -m pip freeze > "$REQUIREMENTS_FILE_NAME".txt && deactivate
+RUN python -m venv venv
+RUN . venv/bin/activate && python -m pip freeze > requirements.txt && deactivate
 
-COPY "$SHELL_FILE_NAME".sh "$SHELL_FILE_NAME".sh
+COPY init.sh init.sh
 COPY "$PYTHON_FILE_NAME".py "$PYTHON_FILE_NAME".py
 
-ENTRYPOINT [ "dash", "init.sh" ]
+RUN chmod +x init.sh
+
+ENTRYPOINT [ "./init.sh" ]

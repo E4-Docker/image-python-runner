@@ -9,17 +9,17 @@ main()
 
 activate_venv()
 {
-    . "$VENV_PATH"/bin/activate
+    . venv/bin/activate
 }
 
 update_python_packages()
 {
     python -m pip install --upgrade pip
 
-    if [ -e "$REQUIREMENTS_FILE_NAME".txt ]; then
-        python -m pip install -r "$REQUIREMENTS_FILE_NAME".txt
+    if [ -e requirements.txt ]; then
+        python -m pip install -r requirements.txt
     else
-        echo "$REQUIREMENTS_FILE_NAME.txt not found."
+        echo "requirements.txt not found."
     fi
 }
 
