@@ -1,0 +1,17 @@
+﻿version: '3'
+
+services:
+    python-runner:
+        image: ghcr.io/e4-docker/python-runner:latest
+        container_name: python-runner
+        environment:
+            SHELL_FILE_NAME: init
+            PYTHON_FILE_NAME: app
+            REQUIREMENTS_FILE_NAME: requirements
+            VENV_PATH: venv
+        volumes:
+            - python_runner:/usr/src/app
+        restart: unless-stopped
+
+volumes:
+    python_runner:
