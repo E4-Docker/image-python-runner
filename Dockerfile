@@ -14,9 +14,7 @@ ENV VENV_PATH=venv
 RUN apt-get update
 
 RUN python -m venv "$VENV_PATH"
-RUN . "$VENV_PATH"/bin/activate
-RUN python -m pip freeze > "$REQUIREMENTS_FILE_NAME".txt
-RUN deactivate
+RUN . "$VENV_PATH"/bin/activate && python -m pip freeze > "$REQUIREMENTS_FILE_NAME".txt && deactivate
 
 COPY "$SHELL_FILE_NAME".sh "$SHELL_FILE_NAME".sh
 COPY "$PYTHON_FILE_NAME".py "$PYTHON_FILE_NAME".py
